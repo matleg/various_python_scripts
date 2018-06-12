@@ -14,7 +14,7 @@ listMarkers = ['|', 'o', 'v', '^', '<', '>', '1', '2',
                '3', '4', 's', 'p', 'h', '+', 'H', '*', 'x', 'D', 'd']
 listColors = ["b", "g", "r", "c", "m", "y", "k"]  # "w" #white not added
 
-with open('pont.stl', 'r') as fifi:
+with open('star.stl', 'r') as fifi:
     lines = fifi.readlines()
 
 triangles = []
