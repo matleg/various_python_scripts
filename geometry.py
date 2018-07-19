@@ -43,21 +43,62 @@ class Point:
 # TODO : same with an angle ?
 
 
-class Vector(object):
-    def __init__(self, vx, vy):
-        self.v = (vx, vy)
-        self.vx = vx
-        self.vy = vy
-        self.length = abs(self)
-        self.norm = self
-        if abs(self.length - 1) > EPSILON and self.length != 0:
-            self.norm = Vector(self.vx / self.length, self.vy / self.length)
+class Vector:  # 2D
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
-    def __str__(self):
-        return "({} {})".format(self.vx, self.vy)
+    def __add__(self, v):
+        return Vector(self.x + v.x, self.y + v.y)
+
+    def __sub__(self, v):
+        return Vector(self.x - v.x, self.y - v.y)
+
+    def __mul__(self, v):
+        """ Returns the dot product if multiplied by another Vector.
+        otherwise multiplies each component by v.
+        """
+        if type(v) == type(self):
+            return self.inner(v)
+        elif type(v) in (int, float):
+            return Vector(self.x * v, self.y * v)
+
+    # def __rmul__(self, v):
+    #     return self.__mul__(v)
+
+    def __div__(self, v):
+        if type(v) in (int, float):
+            return Vector(self.x / v, self.y / v)
 
     def __abs__(self):
-        return math.sqrt(self.vx ** 2 + self.vy ** 2)
+        return math.sqrt(self.x ** 2 + self.y ** 2)
 
-    def round(self):
-        return Vector(round(self.vx), round(self.vy))
+    def inner(self, v):
+        """ Returns the dot product (inner product) of self and vector
+        np.dot and np.inner are identical for 1-dimensions arrays
+        np.inner is also "vector product". It includes matrix-vector multiplication
+        np.dot corresponds to a "tensor product". It includes matrix-matrix multiplication.
+        """
+        return self.x * v.x + self.y * v.y
+
+    def norm(self):
+        """ the norm (length, magnitude) of the vector """
+        return abs(self)
+
+    def length(self):
+        """ the norm (length, magnitude) of the vector """
+        return abs(self)
+
+    def norm2(self):
+        """ norm squared of the vector """
+        return self.x ** 2 + self.y ** 2
+
+    def normalize(self):
+        """ Return a normalized unit vector """
+        norm = self.norm()
+        return Vector(self.x / norm, self.y / norm)
+
+    def angle(self):
+        """ angle in radians between x+ axis and point in a plan"""
+        # only for 2D vectors
+        return math.atan2(self.y, self.x)
