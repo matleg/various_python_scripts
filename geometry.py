@@ -40,7 +40,10 @@ class Point:
         return Point(cx, cy)
 
 
-# TODO : same with an angle ?
+# TODO : closest point in a direction , or with an angle
+
+
+# TODO : vector class with numpy
 
 
 class Vector:  # 2D
@@ -59,7 +62,7 @@ class Vector:  # 2D
         otherwise multiplies each component by v.
         """
         if type(v) == type(self):
-            return self.inner(v)
+            return self.dot(v)
         elif type(v) in (int, float):
             return Vector(self.x * v, self.y * v)
 
@@ -73,13 +76,18 @@ class Vector:  # 2D
     def __abs__(self):
         return math.sqrt(self.x ** 2 + self.y ** 2)
 
+    def dot(self, v):
+        """ Returns the dot product of self and vector
+        """
+        return self.x * v.x + self.y * v.y
+
     def inner(self, v):
         """ Returns the dot product (inner product) of self and vector
         np.dot and np.inner are identical for 1-dimensions arrays
         np.inner is also "vector product". It includes matrix-vector multiplication
         np.dot corresponds to a "tensor product". It includes matrix-matrix multiplication.
         """
-        return self.x * v.x + self.y * v.y
+        return self.dot(v)
 
     def norm(self):
         """ the norm (length, magnitude) of the vector """
@@ -87,7 +95,7 @@ class Vector:  # 2D
 
     def length(self):
         """ the norm (length, magnitude) of the vector """
-        return abs(self)
+        return self.norm()
 
     def norm2(self):
         """ norm squared of the vector """
