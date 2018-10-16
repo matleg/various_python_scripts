@@ -22,12 +22,11 @@ __all__ = ['function1',
            'function3',
            'etc.']
 
-def function1 (bla, bla bla):
+
+def function1(bla, bla1, bla2):
     return ("beginning of the module")
 
-	
-	
-	
+
 class doc(object):  # long version 
     """
     doc(param1, param2=None, ...)
@@ -66,7 +65,9 @@ class doc(object):  # long version
     Second example :
     >>> 
     """
-	def short_method(self, p1="aaa", p2=None):  # short version
+
+    def short_method(self, p1="aaa", p2=None):  # short version
+
         """
         r.short_method(p1="bbb", p2=True)
             Returns ............
@@ -74,7 +75,7 @@ class doc(object):  # long version
         --------
         >>> 
         """
-        pass
+    pass
 
 
 def random_function(p1, p2=2, p3=1., p4=None):  # long version
@@ -109,4 +110,3 @@ def random_function(p1, p2=2, p3=1., p4=None):  # long version
     import numpy as np  # modules can be imported in functions
 
     return r1
-
