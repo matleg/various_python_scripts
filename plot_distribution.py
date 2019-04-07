@@ -23,9 +23,8 @@ lstfi = os.listdir(cwd)
 t0 = time.ctime()
 print(t0)
 
-listMarkers = ['-', '--', '-.', ':', '_', '.', ',', '|', 'o', 'v', '^', '<', '>', '1', '2'
-                                                                                       '3', '4', 's', 'p', 'h', '+',
-               'H', '*', 'x', 'D', 'd']
+listMarkers = ['-', '--', '-.', ':', '_', '.', ',', '|', 'o', 'v', '^', '<', '>', '1', '2', '3', '4', 's', 'p', 'h',
+               '+', 'H', '*', 'x', 'D', 'd']
 
 event = [1, 2, 4, 3, 4, 6, 8, 3, 7, 5, 6, 2, 0, 1, 8, 4, 6, 5, 9,
          2, 7, 5, 6, 0, 1, 7, 3, 0, 2, 5, 7, 1, 0, 6, 3, 5, 7, 0,
@@ -54,7 +53,7 @@ sigma0, sigma1 = 1, 1
 
 # distribution function
 def normal_dist(x, mu=mu0, sigma=sigma0):
-    return (1 / (sigma * math.sqrt(2 * math.pi)) * math.exp(-(x - mu) ** 2 / (2 * sigma ** 2)))
+    return 1 / (sigma * math.sqrt(2 * math.pi)) * math.exp(-(x - mu) ** 2 / (2 * sigma ** 2))
 
 
 def integr(f, mi, ma, h):

@@ -26,11 +26,19 @@ nb_f = 0
 
 with open(filename, 'r') as f:
     contents = f.readlines()
-    for i, l in enumerate(contents):
-        if l == "\n":
-            print(i + 1, contents[i + 1][:-1])
-            size += os.stat(contents[i + 1][:-1]).st_size
-            nb_f += 1
-            # os.remove(contents[i+1][:-1])
+
+i = 0
+while i<len(contents):
+    line = contents[i][:-1]  # remove the \n
+    if "savephone/Pictures" in line:
+        print("rm", line)
+        size += os.stat(line).st_size
+        # os.remove(line)
+        
+        nb_f += 1
+        
+    i += 1
+
+
 
 print(nb_f, size)

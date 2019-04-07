@@ -6,6 +6,10 @@ __pycache__/
 #IDEs
 .idea
 .vscode
+<<<<<<< HEAD
+=======
+
+>>>>>>> 79805e5a3e6532af10e46edb45e848fb92cc9497
 
 # C extensions
 *.so
