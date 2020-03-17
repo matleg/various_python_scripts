@@ -12,8 +12,8 @@ def moyenne(*nombres):
 
 # cas simples
 assert moyenne(5) == 5
-assert moyenne(5, 8, 9) == 7
-assert moyenne(5, 8, 9, 78, 43) == 28
+assert int(moyenne(5, 8, 9)) == 7
+assert int(moyenne(5, 8, 9, 78, 43)) == 28
 
 # aucun parametre en entree
 assert moyenne() == None
@@ -21,6 +21,6 @@ assert moyenne() == None
 # message d'erreur de type plus explicite
 try:
     moyenne(5, 'u', 8)
-except TypeError, e:
+except TypeError as e:
     assert str(e) == "'u' n'est pas un entier"
 
