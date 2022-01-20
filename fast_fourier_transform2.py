@@ -1,8 +1,7 @@
 """another Fourier transform example from I don't remember where"""
-from numpy import sin,  pi
+from numpy import sin,  pi, arange
 from pylab import plot, show,  xlabel, ylabel, subplot
-from scipy import fft, arange
-
+from scipy.fft import fft, ifft
 
 def plotSpectrum(y, Fs):
     """
