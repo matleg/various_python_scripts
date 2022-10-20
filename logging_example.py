@@ -7,7 +7,12 @@ def main():
                         datefmt='%d-%b-%y %H:%M:%S',
                         level=logging.INFO)
     logger = logging.getLogger()  # get the logger with default name 'root'
-
+    
+    # in order to write to a file, root.handlers must be empty
+    # if log to file does not work, add these 2 lines:
+    # Soruce: https://www.tutorialexample.com/fix-python-logging-module-not-writing-to-file-python-tutorial/
+    # for handler in logging.root.handlers[:]:
+    #    logging.root.removeHandler(handler)
 
     # add handler to write log to file
     f_handler = logging.FileHandler('file.log', 'w')  # 'w' erase, 'a' append
