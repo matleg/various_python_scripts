@@ -17,7 +17,6 @@ notepad = "/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe "
 for root, dirs, files in os.walk(dir1):
     for file in files:
         if file.endswith(".pyc"):
-            print(os.path.join(root, file))
             f = os.path.join(root, file)
+            print(f)
             # os.remove(f)
-
